@@ -4,29 +4,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import "./InfoBox.css";
 
-export default function InfoBox(){
+export default function InfoBox({info}){
 
     const INIT_URL = "https://images.unsplash.com/photo-1641970304222-b2b332808a4b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZHVzdHklMjB3ZWF0aGVyfGVufDB8fDB8fHww";
-
-    let info = {
-        city: "Delhi",
-        feelsLike: 24.84,
-        temp: 25.05,
-        tempMin: 25.05,
-        tempMax: 25.05,
-        humidity: 47,
-        weather: "haze",
-    }
+    const HOT_URL = "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmFuZG9tfGVufDB8fDB8fHww";
+    const COLD_URL = "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJhbmRvbXxlbnwwfHwwfHx8MA%3D%3D";
+    const RAIN_URL = "https://images.unsplash.com/photo-1501691223387-dd0500403074?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFpbnxlbnwwfHwwfHx8MA%3D%3D"; 
 
     return(
         <div className="InfoBox">
-            <h1>WeatherInfo - {info.weather}</h1>
+            <div className="cardContainer">
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     component="img"
                     alt="green iguana"
                     height="140"
-                    image={INIT_URL}
+                    image={info.humidity > 80 ? RAIN_URL : (info.temp)>15 ? HOT_URL : COLD_URL}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -41,6 +34,7 @@ export default function InfoBox(){
                     </Typography>
                 </CardContent>
             </Card>
+            </div>
         </div>
     )
 }
