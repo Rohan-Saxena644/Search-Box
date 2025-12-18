@@ -4,6 +4,7 @@ import './App.css';
 // import DeleteIcon from '@mui/icons-material/Delete';
 // import Alert from '@mui/material/Alert';
 import SearchBox from './SearchBox.jsx';
+import InfoBox from './InfoBox.jsx';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
       <Button variant="contained" onClick={handleClick} color="success" size="small">Click me 2 !</Button> */}
 
       <SearchBox/>
+      <InfoBox/>
     </>
   )
 }
